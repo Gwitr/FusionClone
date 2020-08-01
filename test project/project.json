@@ -1,0 +1,244 @@
+{
+    "frames": [
+        {
+            "objs": [
+				{
+					"type": "Input",
+					"pos": [0, 0],
+					"name": "Input",
+					"attrib": {},
+					"duplicate_of": null
+				},
+				{
+					"type": "Game",
+					"pos": [0, 0],
+					"name": "Game",
+					"attrib": {},
+					"duplicate_of": null
+				},
+                {
+                    "type": "Active",
+                    "pos": [0, 0],
+                    "name": "Active",
+                    "attrib": {
+                        "Sprite name": "bg1.png",
+                        "Movement type": "Top-down",
+                        "Damping value": 0.001,
+                        "Speed": 128
+                    },
+                    "duplicate_of": null
+                },
+                {
+                    "type": "Background",
+                    "pos": [48, -16],
+					"name": "lava",
+					"attrib": {
+						"Sprite name": "bg2.png"
+					},
+					"duplicate_of": null
+				},
+				{
+					"type": "Background",
+					"pos": [48, 80],
+					"name": "lava",
+					"attrib": null,
+					"duplicate_of": 3
+				},
+				{
+					"type": "Background",
+					"pos": [16, 80],
+					"name": "lava",
+					"attrib": null,
+					"duplicate_of": 3
+				},
+				{
+					"type": "Background",
+					"pos": [-16, 80],
+					"name": "lava",
+					"attrib": null,
+					"duplicate_of": 3
+				},
+				{
+					"type": "Background",
+					"pos": [16, -80],
+					"name": "end",
+					"attrib": {
+						"Sprite name": "bg3.png"
+					},
+					"duplicate_of": null
+				},
+				{
+					"type": "Background",
+					"pos": [-16, -80],
+					"name": "end",
+					"attrib": null,
+					"duplicate_of": 7
+				},
+				{
+					"type": "Background",
+					"pos": [48, 16],
+					"name": "lava",
+					"attrib": null,
+					"duplicate_of": 3
+				},
+				{
+					"type": "Background",
+					"pos": [48, -16],
+					"name": "lava",
+					"attrib": null,
+					"duplicate_of": 3
+				},
+				{
+					"type": "Background",
+					"pos": [48, -48],
+					"name": "lava",
+					"attrib": null,
+					"duplicate_of": 3
+				},
+				{
+					"type": "Background",
+					"pos": [48, 80],
+					"name": "lava",
+					"attrib": null,
+					"duplicate_of": 3
+				},
+				{
+					"type": "Background",
+					"pos": [-48, 16],
+					"name": "lava",
+					"attrib": null,
+					"duplicate_of": 3
+				},
+				{
+					"type": "Background",
+					"pos": [-48, -16],
+					"name": "lava",
+					"attrib": null,
+					"duplicate_of": 3
+				},
+				{
+					"type": "Background",
+					"pos": [-48, -48],
+					"name": "lava",
+					"attrib": null,
+					"duplicate_of": 3
+				},
+				{
+					"type": "Background",
+					"pos": [-48, 80],
+					"name": "lava",
+					"attrib": null,
+					"duplicate_of": 3
+				},
+				{
+					"type": "Background",
+					"pos": [-48, 48],
+					"name": "lava",
+					"attrib": null,
+					"duplicate_of": 3
+				},
+				{
+					"type": "Background",
+					"pos": [-48, -80],
+					"name": "lava",
+					"attrib": null,
+					"duplicate_of": 3
+				},
+				{
+					"type": "Background",
+					"pos": [48, 48],
+					"name": "lava",
+					"attrib": null,
+					"duplicate_of": 3
+				},
+				{
+					"type": "Background",
+					"pos": [48, -80],
+					"name": "lava",
+					"attrib": null,
+					"duplicate_of": 3
+				}
+			],
+			"grid": [
+				[
+					{"name": "Collision", "objname": "Active", "arg": "lava"},
+					[
+						{
+							"name": "Move", 
+							"objname": "Active",
+							"value": [0, 0]
+						}
+					]
+				],
+				[
+					{"name": "Collision", "objname": "Active", "arg": "end"},
+					[
+						{
+							"name": "Set timer #0",
+							"objname": "Game",
+							"value": 1.5
+						},
+						{
+							"name": "Destroy",
+							"objname": "Active",
+							"value": null
+						},
+						{
+							"name": "Destroy",
+							"objname": "lava",
+							"value": null
+						},
+						{
+							"name": "Destroy",
+							"objname": "end",
+							"value": null
+						},
+						{
+							"name": "Create object",
+							"objname": "Game",
+							"value": {
+								"type": "Background",
+								"pos": [0, 0],
+								"name": "you win",
+								"attrib": {
+									"Sprite name": "bg4.png"
+								},
+								"duplicate_of": null
+							}
+						},
+						{
+							"name": "Camera: Follow object",
+							"objname": "Game",
+							"value": null
+						},
+						{
+							"name": "Camera: Move",
+							"objname": "Game",
+							"value": [0, 0]
+						}
+					]
+				],
+				[
+					{"name": "Timer expired", "objname": "Game", "arg": 0},
+					[
+						{
+							"name": "Close game window",
+							"objname": "Game",
+							"value": null
+						}
+					]
+				],
+				[
+					{"name": "Frame start", "objname": "Game", "arg": null},
+					[
+						{
+							"name": "Camera: Follow object",
+							"objname": "Game",
+							"value": "Active"
+						}
+					]
+				]
+			]
+		}
+	]
+}
